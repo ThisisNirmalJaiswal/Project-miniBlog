@@ -14,19 +14,19 @@ const createAuthor = async function (req, res) {
         if (Object.keys(author).length == 0) return res.status(400).send({ status:false, msg: "Body can't be Empty" })
 
         // -------------------------------------------------fname validation----------------------------------------------------------------------
-        if (!author.fname) return res.status(400).send({ status: false, msg: "fname is required" })
+        if (!author.firstName) return res.status(400).send({ status: false, msg: "firstName is required" })
 
-        if (!author.fname.match(nameRegex)) return res.status(400).send({ status: false, msg: "Invalid format of fname" })
+        if (!author.firstName.match(nameRegex)) return res.status(400).send({ status: false, msg: "Invalid format of firstName" })
 
         // --------------------------------------------------lname validation --------------------------------------------------------------------
-        if (!author.lname) return res.status(400).send({ status: false, msg: "lname is required" })
+        if (!author.lastName) return res.status(400).send({ status: false, msg: "lastName is required" })
 
-        if (!author.lname.match(nameRegex)) return res.status(400).send({ status: false, msg: "Invalid format of lname" })
+        if (!author.lastName.match(nameRegex)) return res.status(400).send({ status: false, msg: "Invalid format of lastName" })
 
         // --------------------------------------------------title validation----------------------------------------------------------------------
         if (!author.title) return res.status(400).send({ status: false, msg: "title must be present" })
 
-       if(["Mr","Mrs","Miss"].indexOf(author.title)== -1)return res.status(400).send({status:false,msg:"title must follow the enum"})
+        if(["Mr","Mrs","Miss"].indexOf(author.title)== -1)return res.status(400).send({status:false,msg:"title must follow the enum"})
 
         // -----------------------------------------------------email validation ------------------------------------------------------------
         

@@ -121,7 +121,7 @@ const deleteblog = async function (req, res) {
         }
 
         let deletedb = await blogModel.findOneAndUpdate({ _id: blogid }, { isDeleted: true, deletedAt: new Date() })
-        res.status(200).send({ status: true})
+        res.status(200).send({ status: true, msg:"Deleted!!!"})
     }
 
     catch (err) {
@@ -170,7 +170,7 @@ const deleteByQuery = async function (req, res) {
         { $set: { isDeleted: true, deletedAt: new Date() } },
         { new: true })
 
-        return res.status(200).send({ status: true })
+        return res.status(200).send({ status: true, msg:'Deleted!!' })
     }
 
     catch (err) {
